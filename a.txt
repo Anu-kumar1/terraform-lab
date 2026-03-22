@@ -1,0 +1,85 @@
+assignmnet1 : 
+   terraform plan
+   terraform apply
+
+Terraform file extension = .tf
+provider → environment
+resource → kya create karna hai
+variable → dynamic input
+output → result show karta hai
+
+Workflow:
+
+init → plan → apply
+____________________________________________________________
+ASSIGNMNET2: 
+ Different environments (dev / prod)
+ terraform apply -var-file="dev.tfvars"
+ terraform apply -var-file="prod.tfvars"
+ 🔹 Why tfvars?
+
+👉 Same code → different configs
+
+Key Learning
+variables.tf → define inputs
+tfvars → pass values
+____________________________________________________________
+ASSIGNMENT3:
+1. Initialize
+   terraform init
+
+    Docker provider download hoga
+2.Plan
+    terraform plan
+
+    Tumhe dikhega:
+
+    docker_image create
+    docker_container create
+3.Apply
+terraform apply
+important points:
+
+provider "docker" → Docker control
+docker_image → image pull karta hai
+docker_container → container run karta hai
+
+ports mapping:
+
+8080 (host) → 80 (container)
+______________________________________________________
+ASSIGNMENET4:
+
+important points:
+----------------------
+Reusable code (module) banayenge
+👉 Same code → multiple containers
+
+💡 What is Module?
+
+👉 Module = function jaisa hota hai Terraform me
+
+Same logic → reuse multiple times
+----------------------------------
+ Module kya karta hai?
+
+👉 Code reuse karta hai
+
+🔹 Advantage:
+Clean code
+Reusable
+Scalable
+🔹 Structure:
+module "name" {
+  source = "./path"
+}
+
+ASSIGNMENET5:
+____________________________________________________________
+till now ,we have run manually 
+    terraform fmt
+    terraform validate
+    terraform plan
+
+now , GitHub automatically run karega jab bhi code push hoga
+ This is called: CI = Continuous Integration
